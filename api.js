@@ -7,30 +7,41 @@ export function greet() {
 console.log("api.js is running");
 
 //Module globals
-let cityChoice;  //city
+let cityChoice;
+
 
 const apiKey = '3LYP7YAJ8DVVXHPKT4TQW254J';
-const location = 'Las Vegas';
-const unitGroup = 'metric';
+//const location = 'Las Vegas, NV';
+const unitGroup = 'us';   //or use 'metric'  make a switch button?
 const contentType = 'json';
 
 const urlBase = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${cityChoice}?key=${key}`;
 console.log(urlBase);
 
-export async function fetchDataFromAPI() {
+export const fetchDataFromAPI = async (city) => {
     //e.preventDefault();
 
-
     //Get city from text input - default to Las Vegas for now
-    cityChoice = 'Las Vegas';
+    //cityChoice = 'Las Vegas, NV';
+    cityChoice = city;
+    console.log(city);
 
     //build a coordinate requuest URL:
     // Construct the API URL
     const url = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/
         ${encodeURIComponent(cityChoice)}?unitGroup=${unitGroup}&key=${key}&contentType=${contentType}`;
 
-    const response = await fetch(url);
-    const weatherData = await response.json();
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const weatherData = await response.json();
+        return weatherData;
+    } catch (error) {
+        console.error("Error in data fetch:", error);
+        throw error;
+    }
 
     // Handle the weather data
     console.log('Weather data:', weatherData);
@@ -38,8 +49,9 @@ export async function fetchDataFromAPI() {
     const currentConditions = weatherData.days[0].conditions;
     console.log(`Date: ${todayWeather.datetime}, TempMax: ${todayWeather.tempmax}°C, TempMin: ${todayWeather.tempmin}°C`);
     console.log(currentConditions);
-    
-}
+
+};
+
 
 
 

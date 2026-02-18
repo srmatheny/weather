@@ -1,6 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Monoton&family=MuseoModerno:ital,wght@0,100..900;1,100..900&family=Righteous&display=swap");
+
+@import url("https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.12/css/weather-icons.min.css");
 
 
-body {
-    background-color: aquamarine;
+* {
+    box-sizing: border-box;
 }
 
+body {
+    /*background-color: aquamarine;*/
+    font-family: Roboto, sans-serif;
+    font-weight: normal;
+    background-color: aquamarine;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
+.main-grid {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 1fr 5fr;
+    border: 2px solid gray;
+    border-style: outset;
+    padding: 10px;
+    background-color: lightblue;
+}
+
+.upper-left {
+    border-style: outset;
+    border: 3px solid gray;
+}
+
+.app {
+    border-style: outset;
+    border: 3px solid gray;
+    box-shadow: 10px 5px 5px red;
+    display: grid;
+    /*flex-direction: column;*/
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, minmax(100px, 2fr)) 1fr;
+    gap: 2px;
+}
+
+.app-hdr {
+    display: grid;
+    grid-template-columns: 1fr 4fr 3fr;
+    grid-template-rows: 1fr;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 10px 5px 5px blue
+}
+.hdr-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+.hdr-date-time {
+    color: red;
+    
+}
+.hdr-icon {
+    box-shadow: none;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+#hdr-icon {
+
+}
+.app div {
+    border: 2px solid gray;
+    border-radius: 5px;
+    padding: 5px;
+    /*box-shadow: 10px 5px 5px blue;*/
+
+}
+
+/*INPUT AREA*/
+.input-area {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.input-area form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.input-search {
+    width: 200px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+
+.upper-right {
+    border-style: inset;
+    border: 1px solid gray;
+}
+
+.lower-left {
+    border-style: inset;
+    border: 1px solid gray;
+}
+
+.container div {
+
+    background-color: #f1f1f1;
+    border: 1px solid black;
+    padding: 10px;
+    font-size: 30px;
+    text-align: center;
+}
