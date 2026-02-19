@@ -5,7 +5,7 @@
 export const processData = (weatherData) => {
 
     console.log('running processData in processData.js');
-    console.log('Weather data:', weatherData);
+    //console.log('Weather data:', weatherData);
 
     //greet();
 

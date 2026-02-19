@@ -9,14 +9,13 @@ console.log("api.js is running");
 //Module globals
 let cityChoice;
 
-
 const apiKey = '3LYP7YAJ8DVVXHPKT4TQW254J';
 //const location = 'Las Vegas, NV';
 const unitGroup = 'us';   //or use 'metric'  make a switch button?
 const contentType = 'json';
 
 const urlBase = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${cityChoice}?key=${key}`;
-console.log(urlBase);
+//console.log(urlBase);
 
 export const fetchDataFromAPI = async (city) => {
     //e.preventDefault();
@@ -24,7 +23,7 @@ export const fetchDataFromAPI = async (city) => {
     //Get city from text input - default to Las Vegas for now
     //cityChoice = 'Las Vegas, NV';
     cityChoice = city;
-    console.log(city);
+    //console.log(city);
 
     //build a coordinate requuest URL:
     // Construct the API URL
@@ -44,11 +43,11 @@ export const fetchDataFromAPI = async (city) => {
     }
 
     // Handle the weather data
-    console.log('Weather data:', weatherData);
-    const todayWeather = weatherData.days[0];
-    const currentConditions = weatherData.days[0].conditions;
-    console.log(`Date: ${todayWeather.datetime}, TempMax: ${todayWeather.tempmax}°C, TempMin: ${todayWeather.tempmin}°C`);
-    console.log(currentConditions);
+    // console.log('Weather data:', weatherData);
+    // const todayWeather = weatherData.days[0];
+    // const currentConditions = weatherData.days[0].conditions;
+    // console.log(`Date: ${todayWeather.datetime}, TempMax: ${todayWeather.tempmax}°C, TempMin: ${todayWeather.tempmin}°C`);
+    // console.log(currentConditions);
 
 };
 

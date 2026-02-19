@@ -31,21 +31,14 @@ const cityInput = document.getElementById('input-search');
 city = cityInput.value;
 //console.log(city);
 
-
-
 const myApp = async (city) => {
 
     try {
         //city = 'London';
-        
-        console.log(city);
-
+        //console.log(city);
         const data = await fetchDataFromAPI(city);
-        
         const result = processData(data);
-
-        console.log("Final result in Index.js myApp: ", result);
-
+        //console.log("Final result in Index.js myApp: ", result);
         domManip(result);
 
     } catch (error) {
@@ -55,14 +48,7 @@ const myApp = async (city) => {
 };   
 
 setupButtonListener();
-
 myApp(city);
-
-
-
-
-
-  
 
 function domManip(result) {
     const appArea = document.getElementById('app');
@@ -81,7 +67,8 @@ function domManip(result) {
         imgArea.innerHTML = '';
         const hdrImg = document.createElement("img");
         //hdrImg.src = getWeatherIcon(result.currentConditions.icon); //odinImage; 
-        hdrImg.src = IMAGES.odin; 
+        // hdrImg.src = IMAGES.odin;
+        hdrImg.src = IMAGES.appIcon; 
         hdrImg.style.width = "75px";
         hdrImg.style.height = "auto";
         imgArea.appendChild(hdrImg);
@@ -91,8 +78,7 @@ function domManip(result) {
         //City name / weather brief area***********
         //Header text area
         const hdrText = document.getElementById('hdr-text');
-        hdrText.innerText = "Shitty Wok Weather App";
-
+        hdrText.innerText = "Schitty Wok Weather App";
 
         //Header date/time area
         const hdrDateTime = document.getElementById('hdr-date-time');
@@ -146,9 +132,11 @@ function domManip(result) {
         const sunsetTimeObj = parse(sunsetTime, 'HH:mm:ss', baseDate);
         const sunriseFormatted = format(sunrisetimeObj, 'hh:mm a');
         const sunsetFormatted = format(sunsetTimeObj, 'hh:mm a');
-        sunriseArea.innerHTML = "Local Sunrise: " + sunriseFormatted;
-        sunsetArea.innerText = "Local Sunset: " + sunsetFormatted;
-
+        //sunriseArea.innerHTML = "Local Sunrise: " + sunriseFormatted;
+        //sunsetArea.innerText = "Local Sunset: " + sunsetFormatted;
+        //alternate display option on one line.........
+        
+        sunsetArea.innerText = "Sunrise: " + sunriseFormatted + " || " + "Sunset: " + sunsetFormatted;
     };
 
     function createStats () {
@@ -165,26 +153,26 @@ function domManip(result) {
         //-------------------WIND AREA--------------------------
         let windString = result.currentConditions.windspeed;
         let gustString = result.currentConditions.windgust;
-        console.log(windString);
-        console.log(gustString);
+        //console.log(windString);
+        //console.log(gustString);
         windCellDesc.textContent = 'Wind Speed / Gusts';
         windCellNum.innerHTML = windString + "mph" + " / " + gustString +"mph";
 
         //--------------------HUMIDITY AREA---------------------
         let humidString = result.currentConditions.humidity;
-        console.log(humidString);
+        //console.log(humidString);
         humidCellDesc.textContent = 'Humidity';
         humidCellNum.innerHTML = humidString + "%";
 
         //-------------------FEELS LIKE AREA-------------------
         let feelsString = result.currentConditions.feelslike;
-        console.log(feelsString);
+        //console.log(feelsString);
         feelsCellDesc.textContent = 'Feels Like';
         feelsCellNum.innerHTML = feelsString + "\u00B0F";
 
         //-------------------CHANCE OF RAIN AREA------------------
         let rainChanceString = result.currentConditions.precipprob;
-        console.log(rainChanceString);
+        //console.log(rainChanceString);
         rainCellDesc.textContent = 'Precipitation Probability'
         rainCellNum.innerHTML = rainChanceString + "%";
 
@@ -300,11 +288,8 @@ function domManip(result) {
 };
 
 
-
 function setupButtonListener() {
-    
     const inputBtn = document.getElementById('search');
-
     if (inputBtn) {
             inputBtn.addEventListener('click', getUserInput);
 
@@ -313,22 +298,16 @@ function setupButtonListener() {
     };
 };
 function getUserInput () {
-    
-    console.log("Button clicked!");
-    console.log("in the get input func");
-
-    alert(cityInput.value);
-    
+    console.log("get input func button clicked!");
     myApp(cityInput.value);
-
 };
 
 
 function getWeatherIcon(currentDesc) {
     
-    console.log(currentDesc);
+    //console.log(currentDesc);
     const temp = currentDesc + '.png';
-    console.log(temp);
+    //console.log(temp);
     //let image = document.createElement("img");
     //image.src = temp;
     //import tempImage from `${temp}`;
@@ -362,7 +341,5 @@ function getWeatherIcon(currentDesc) {
 
 };
 
-//domManip();
 
-//processData();
 

@@ -40,6 +40,8 @@ body {
     /*flex-direction: column;*/
     grid-template-columns: 1fr;
     grid-template-rows: 1fr repeat(3, minmax(100px, 2fr)) 1fr;
+    /* grid-template-rows: .75fr 1fr .75fr 1fr .5fr; */
+
     gap: 5px;
 }
 

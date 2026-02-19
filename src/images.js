@@ -1,5 +1,7 @@
 /*images.js*/
 import odinImage from './odin.png';
+import appIcon from '../icons/app-icon.png';
+import appIcon1 from '../icons/app-icon1.png';
 import partlyCloudyNight from "../icons/partly-cloudy-night.png";
 import partlyCloudyDay from "../icons/partly-cloudy-day.png";
 import clearDay from "../icons/clear-day.png";
@@ -25,6 +27,8 @@ import wind from "../icons/wind.png";
 
 export const IMAGES = {
     odin: odinImage,
+    appIcon: appIcon,
+    appIcon1: appIcon1,
     partlyCloudyNight: partlyCloudyNight,
     partlyCloudyDay: partlyCloudyDay,
     clearDay: clearDay,
